@@ -13,7 +13,8 @@ $ pip install jejunuMeals
 ```python
 >>> from jejunuMeals import JejunuMeals
 >>> from pprint import pprint
->>> pprint(JejunuMeals().fetch_meals()) # 0 ~ 4 : mon ~ fir
+>>> meals = JejunuMeals().fetch_meals()
+>>> pprint(meals) # 0 ~ 4 : mon ~ fir
 {0: {'저녁': {'양식': '\n없음\n',
             '정식': '\n검정쌀밥\n꽃게탕\n닭고기떡조림(chicken)\n유채나물무침\n김치\n',
             '중식': '\n없음\n',
@@ -51,11 +52,9 @@ $ pip install jejunuMeals
             '정식': '\n베이컨야채볶음밥\n달걀파국\n쫄면야채무침\n김치\n',
             '중식': '\n삼계탕\n양파장아찌\n김치\n',
             '특식': '\n차조밥\n쇠고기된장뚝배기(beef)\n과일야채샐러드\n우엉채볶음\n동초나물무침\n김치\n'}}}
->>> JejunuMeals().dump_yaml() # save as output.yaml
->>> pprint(JejunuMeals().fetch_today('점심', '정식'))
-'\n닭갈비덮밥(chicken)\n배추된장국\n쥐치채볶음\n김치\n'
->>> pprint(JejunuMeals().fetch_someday(0, '점심', '정식'))
-'\n마파두부덮밥(pork)\n무된장국\n비빔만두\n김치\n'
+>>> import yaml # You can also save as `.yaml` (using pyYaml)
+>>> with open('output.yaml', 'w') as outfile:
+...     yaml.dump(meals, outfile, default_flow_style=False, allow_unicode=True)
 ```
 
 _jejunuMeals_ is primarily distributed under the terms of the [GNU Affero General Public License v3.0](./LICENSE) or any later version. See [COPYRIGHT](./COPYRIGHT) for details.

@@ -11,4 +11,4 @@ setup(
     long_description_content_type='text/markdown',
     packages=find_packages(),
     python_requires='>=3',
-    install_requires=['bs4', 'requests', 'pyYAML'])
+    install_requires=['bs4', 'requests'])
