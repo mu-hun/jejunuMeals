@@ -22,10 +22,12 @@ class JejunuMeals:
         return table_data
 
     def fetch_meals(self):
-        toYaml = {0: {'점심': {}, '저녁': {}}, 1: {'점심': {}, '저녁': {}}, 2: {'점심': {}, '저녁': {}}, 3: {'점심': {}, '저녁': {}}, 4: {'점심': {}, '저녁': {}}}
+        toYaml = {(0): {'점심': {}, '저녁': {}}, 1: {'점심': {}, '저녁': {}}, 2: {'점심': {}, '저녁': {}}, 3: {'점심': {}, '저녁': {}}, 4: {'점심': {}, '저녁': {}}}
         weekday = -1
-        data = JejunuMeals().table_tds()
+        data = self.table_tds()
         for index, atom in enumerate(data):
+            if index == 0:
+                continue
             if index == 1 or index == 5 or index == 9 or index == 13 or index == 17:
                 weekday = weekday + 1
                 toYaml[weekday]['점심']['정식'] = atom[2]
@@ -39,7 +41,8 @@ class JejunuMeals:
             elif index == 4 or index == 8 or index == 12 or index == 16 or index == 20:
                 toYaml[weekday]['점심']['중식'] = atom[1]
                 toYaml[weekday]['저녁']['중식'] = atom[2]
-        return toYaml
+            else:
+                return toYaml
 
 if __name__ == '__main__':
     from pprint import pprint
