@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup as bs
 
 URL = 'http://www.jejunu.ac.kr/camp/stud/foodmenu'
 
-YAML = {0: {'점심': {}, '저녁': {}}, 1: {'점심': {}, '저녁': {}}, 2: {'점심': {}, '저녁': {}},
-        3: {'점심': {}, '저녁': {}}, 4: {'점심': {}, '저녁': {}}}
+YAML = dict.fromkeys([0, 1, 2, 3, 4], {'점심': {}, '저녁': {}})
 
 WEEKDAYS = {0: 0, 1: 0, 2: 0, 3: 0,
             4: 1, 5: 1, 6: 1, 7: 1,
@@ -15,7 +14,7 @@ WEEKDAYS = {0: 0, 1: 0, 2: 0, 3: 0,
             12: 3, 13: 3, 14: 3, 15: 3,
             16: 4, 17: 4, 18: 4, 19: 4}
 
-FLAGS = {0: 2, 4: 2, 8: 2, 12: 2, 16: 2}
+FLAGS = dict.fromkeys([0, 4, 8, 12, 16], 2)
 
 class JejunuMeals:
 
