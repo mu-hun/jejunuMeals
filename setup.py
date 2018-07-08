@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jejunuMeals',
-    version='1.0.2',
+    version='1.0.20',
     url='https://github.com/BetaF1sh/jejunuMeals',
     license='GPL v3.0',
     author='BetaF1sh',
