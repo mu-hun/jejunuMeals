@@ -2,7 +2,6 @@
 
 [![PyPI version](https://badge.fury.io/py/jejunuMeals.svg)](https://badge.fury.io/py/jejunuMeals)
 [![Build Status](https://travis-ci.org/BetaF1sh/jejunuMeals.svg?branch=master)](https://travis-ci.org/BetaF1sh/jejunuMeals)
-[![Coverage Status](https://coveralls.io/repos/github/BetaF1sh/jejunuMeals/badge.svg?branch=master)](https://coveralls.io/github/BetaF1sh/jejunuMeals?branch=master)
 
 Jeju National University meal data crawler
 
