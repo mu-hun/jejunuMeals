@@ -3,7 +3,13 @@
 [![PyPI version](https://badge.fury.io/py/jejunuMeals.svg)](https://badge.fury.io/py/jejunuMeals)
 [![Build Status](https://travis-ci.org/BetaF1sh/jejunuMeals.svg?branch=master)](https://travis-ci.org/BetaF1sh/jejunuMeals)
 
-Jeju National University meal data crawler
+![GitHub license](https://img.shields.io/badge/license-GPL%20v3.0-blue.svg?style=flat-square)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg?style=flat-square)
+[![GitHub issues](https://img.shields.io/github/issues/BetaF1sh/jejunuMeals.svg?style=flat-square)](https://github.com/BetaF1sh/jejunuMeals/issues)
+
+제주대학교 학식 조회 모듈
+
+Lookup meals data for [Jeju National University](http://www.jejunu.ac.kr/camp/stud/foodmenu).
 
 ## Install
 
@@ -11,13 +17,12 @@ Jeju National University meal data crawler
 $ pip install jejunuMeals
 ```
 
-## How to use
+## Usage
 
 ```python
 >>> from jejunuMeals import JejunuMeals
 >>> from pprint import pprint
->>> meals = JejunuMeals().fetch_meals()
->>> pprint(meals) # 0 ~ 4 : mon ~ fir
+>>> pprint(JejunuMeals().menus())
 {0: {'저녁': {'양식': '\n없음\n',
             '정식': '\n검정쌀밥\n꽃게탕\n닭고기떡조림(chicken)\n유채나물무침\n김치\n',
             '중식': '\n없음\n',
@@ -55,9 +60,50 @@ $ pip install jejunuMeals
             '정식': '\n베이컨야채볶음밥\n달걀파국\n쫄면야채무침\n김치\n',
             '중식': '\n삼계탕\n양파장아찌\n김치\n',
             '특식': '\n차조밥\n쇠고기된장뚝배기(beef)\n과일야채샐러드\n우엉채볶음\n동초나물무침\n김치\n'}}}
->>> import yaml # You can also save as `.yaml` (using pyYaml)
->>> with open('output.yaml', 'w') as outfile:
-...     yaml.dump(meals, outfile, default_flow_style=False, allow_unicode=True)
+```
+
+## API
+
+### `JejunuMeals().menus()`
+
+Fetch meal data of specific weekday.
+
+```python
+>>> from jejunuMeals import JejunuMeals
+>>> from datetime import date
+>>> from pprint import pprint
+>>> pprint(JejunuMeals().menus(date.today().weekday()))
+{'저녁': {'양식': '\n없음\n',
+        '정식': '\n차조밥\n참치김치찌개\n돼지고기모듬장조림(pork)\n열무된장무침\n김치\n',
+        '중식': '\n없음\n',
+        '특식': '\n없음\n'},
+ '점심': {'양식': '\n없음\n',
+        '정식': '\n베이컨야채볶음밥\n달걀파국\n쫄면야채무침\n김치\n',
+        '중식': '\n삼계탕\n양파장아찌\n김치\n',
+        '특식': '\n차조밥\n쇠고기된장뚝배기(beef)\n과일야채샐러드\n우엉채볶음\n동초나물무침\n김치\n'
+}}
+```
+
+#### Parameter
+
+##### weekday (optional)
+
+The weekday on which you want to fetch meal data.
+
+This value only valid in between 0 and 4. if empty or greater than 4, return all menus.
+
+### `JejunuMeals().daily()`
+
+Just an alias of `JejunuMeals().menus()`
+
+## Save to yaml
+
+You shoud install before `pip install pyYaml`
+
+```python
+import yaml
+with open('output.yaml', 'w') as outfile:
+    yaml.dump(JejunuMeals().menus(), outfile, default_flow_style=False, allow_unicode=True)
 ```
 
 _jejunuMeals_ is primarily distributed under the terms of the [GNU Affero General Public License v3.0](./LICENSE) or any later version. See [COPYRIGHT](./COPYRIGHT) for details.

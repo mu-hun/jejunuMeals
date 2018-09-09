@@ -35,7 +35,7 @@ class JejunuMeals:
         table_data = table_data[1:21]
         return table_data
 
-    def fetch_meals(self):
+    def menus(self, _weekday=None):
         data = self.table_tds()
         yaml = self.yaml
         for index, atom in enumerate(data):
@@ -43,7 +43,11 @@ class JejunuMeals:
             flag = self.flags.get(index, 1)
             yaml[weekday]['점심'][atom[flag - 1]] = atom[flag]
             yaml[weekday]['저녁'][atom[flag - 1]] = atom[flag + 1]
-        return yaml
+        return yaml.get(_weekday, yaml)
+    
+    def daily(self):
+        from datetime import date
+        return self.menus(date.today().weekday())
 
 if __name__ == '__main__':
     from pprint import pprint
