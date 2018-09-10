@@ -1,10 +1,8 @@
 # jejunuMeals
 
-[![PyPI version](https://badge.fury.io/py/jejunuMeals.svg)](https://badge.fury.io/py/jejunuMeals)
-[![Build Status](https://travis-ci.org/BetaF1sh/jejunuMeals.svg?branch=master)](https://travis-ci.org/BetaF1sh/jejunuMeals)
-
-![GitHub license](https://img.shields.io/badge/license-GPL%20v3.0-blue.svg?style=flat-square)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg?style=flat-square)
+![Travis (.org) branch](https://img.shields.io/travis/BetaF1sh/jejunuMeals/master.svg?style=flat-square)
+![PyPI version](https://img.shields.io/pypi/v/JejunuMeals.svg?style=flat-square)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jejunuMeals.svg?style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues/BetaF1sh/jejunuMeals.svg?style=flat-square)](https://github.com/BetaF1sh/jejunuMeals/issues)
 
 제주대학교 학식 조회 모듈
