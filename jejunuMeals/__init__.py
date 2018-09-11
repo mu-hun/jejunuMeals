@@ -3,6 +3,7 @@
 
 from requests import get
 from bs4 import BeautifulSoup as bs
+from datetime import datetime
 
 URL = 'http://www.jejunu.ac.kr/camp/stud/foodmenu'
 
@@ -46,8 +47,7 @@ class JejunuMeals:
         return yaml.get(_weekday, yaml)
     
     def daily(self):
-        from datetime import date
-        return self.menus(date.today().weekday())
+        return self.menus(datetime.now().weekday())
 
 if __name__ == '__main__':
     from pprint import pprint
