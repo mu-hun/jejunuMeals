@@ -30,18 +30,14 @@ class JejunuMeals:
 
     def table_tds(self):
         soup = self.soup(self.url)
-        table_data = [[cell.text for cell in
+        return [[cell.text for cell in
                       row.select('td.border_right.txt_center')]
-                      for row in soup.select('table > tr')]
-        table_data = table_data[1:21]
-        return table_data
+                      for row in soup.select('table > tr')][1:21]
 
     def menus(self, _weekday=None):
-        items = self.table_tds()
-        yaml = self.yaml
+        items, yaml = self.table_tds(), self.yaml
         for index, item in enumerate(items):
-            weekday = self.weekdays[index]
-            flag = self.flags.get(index, 1)
+            weekday, flag = self.weekdays[index], self.flags.get(index, 1)
             yaml[weekday]['점심'][item[flag - 1]] = item[flag]
             yaml[weekday]['저녁'][item[flag - 1]] = item[flag + 1]
         return yaml.get(_weekday, yaml)
