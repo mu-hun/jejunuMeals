@@ -1,7 +1,7 @@
 # jejunuMeals
 
-![Travis (.org) branch](https://img.shields.io/travis/BetaF1sh/jejunuMeals/master.svg?style=flat-square)
-![PyPI version](https://img.shields.io/pypi/v/JejunuMeals.svg?style=flat-square)
+[![Travis (.org) branch](https://img.shields.io/travis/BetaF1sh/jejunuMeals/master.svg?style=flat-square)](https://travis-ci.org/BetaF1sh/jejunuMeals)
+[![PyPI version](https://img.shields.io/pypi/v/JejunuMeals.svg?style=flat-square)](https://pypi.org/project/jejunuMeals/)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jejunuMeals.svg?style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues/BetaF1sh/jejunuMeals.svg?style=flat-square)](https://github.com/BetaF1sh/jejunuMeals/issues)
 
