@@ -51,4 +51,4 @@ class JejunuMeals:
 
 if __name__ == '__main__':
     from pprint import pprint
-    pprint(JejunuMeals().fetch_meals())
+    pprint(JejunuMeals().menus())
