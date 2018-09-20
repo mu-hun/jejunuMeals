@@ -25,17 +25,17 @@ class JejunuMeals:
         self.weekdays = weekdays
         self.flags = flags
 
-    def soup(self, url):
+    def _soup(self, url):
         return bs(get(url).text, 'html.parser')
 
-    def table_tds(self):
-        soup = self.soup(self.url)
+    def _table_tds(self):
+        soup = self._soup(self.url)
         return [[cell.text for cell in
                       row.select('td.border_right.txt_center')]
                       for row in soup.select('table > tr')][1:21]
 
     def menus(self, _weekday=None):
-        items, yaml = self.table_tds(), self.yaml
+        items, yaml = self._table_tds(), self.yaml
         for index, item in enumerate(items):
             weekday, flag = self.weekdays[index], self.flags.get(index, 1)
             yaml[weekday]['점심'][item[flag - 1]] = item[flag]
