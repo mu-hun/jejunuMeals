@@ -1,5 +1,4 @@
 language: python
-
 matrix:
   include:
   - python: 3.5
@@ -11,9 +10,25 @@ matrix:
   - python: 3.7
     dist: xenial
     sudo: true
-
 install:
-  - python setup.py install
-
+- python setup.py install
 script:
-  - python test.py
+- python test.py
+
+deploy:
+  provider: releases
+  api_key: $token
+  file:
+  - "dist/jejunuMeals-*-py3-none-any.whl"
+  - "jejunuMeals.egg-info"
+  - "build/bdist.macosx-*-x86_64"
+  on:
+    tags: true
+
+deploy:
+  provider: pypi
+  user: BetaFish
+  password: $pw
+  on:
+    tags: true
+    branch: master
