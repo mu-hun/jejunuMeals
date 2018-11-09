@@ -100,8 +100,12 @@ You shoud install before `pip install pyYaml`
 
 ```python
 import yaml
+
+noalias = yaml.dumper.SafeDumper
+noalias .ignore_aliases = lambda self, data: True
+
 with open('output.yaml', 'w') as outfile:
-    yaml.dump(JejunuMeals().menus(), outfile, default_flow_style=False, allow_unicode=True)
+    yaml.dump(JejunuMeals().menus(), outfile, default_flow_style=False, allow_unicode=True, Dumper=noalias)
 ```
 
 _jejunuMeals_ is primarily distributed under the terms of the [GNU Affero General Public License v3.0](./LICENSE) or any later version. See [COPYRIGHT](./COPYRIGHT) for details.
