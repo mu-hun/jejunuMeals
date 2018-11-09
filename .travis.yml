@@ -14,21 +14,12 @@ install:
 - python setup.py install
 script:
 - python test.py
-
-deploy:
-  provider: releases
-  api_key: $token
-  file:
-  - "dist/jejunuMeals-*-py3-none-any.whl"
-  - "jejunuMeals.egg-info"
-  - "build/bdist.macosx-*-x86_64"
-  on:
-    tags: true
-
 deploy:
   provider: pypi
+  skip_existing: true
   user: BetaFish
-  password: $pw
+  password:
+    secure: pAuhrQHzgdVx5CMQuwxS/haoebylW6JXcriUNi6zecZoBiIKao1ti9KgjEsncI7YsQ285JrZr1nBN6ocwnrYQNQ1uSive4Cwck+/EH6RNRoEkHeb6fycrDjcIv1/2X7bLlAbwzTOFJFvCPr3h1Qf5UK2KHpvXSFMCE4P0nrjbKHIA83BMVNUVgrhdiaTOFpNNMb/VUiBWOQZf134hMsrhryqNmYwEeJLxiC7PkBq1HvwdFvafA3Ydv2rqvtM5HWyBRqqnWUT3Tv1TWWsV2ZTEtqF4g5qSh75oh+my0LOOeMCVs3V1MWmDUbIND8Yrp6nhWR5GpOJoPfrSq95q0xSo+Ot2elEkWksSQkSVQj/8ZIq1nLjIj+h940UqeuLnfOQuU7kxle3aFTCaNwI8C65Xqiasm06W1DqCyqpGeQ86sicWxhJQHkzXJZNDWUWzFaZElcxrcxNppggklu1GyJ2G8shk5anjub/GMzTVnbYxZY80GBh/60Ya4eXY7ho0QPptoDi25l0erMoe81u4wG/rhyGGxdi91swe/e6+5KCLAdumWPUz2ASv93dmUow4wUQTteXTUAqqrt9KJxyBwrcu+YuVAq678QRPKn7TO/2jXikAWA1dbaPgo0EpxZJ2AG6FHUPebCVaG7jwIaLL2LExdo7iTuoFvu3Fjl/zVSY3oI=
   on:
     tags: true
     branch: master
