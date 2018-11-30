@@ -102,7 +102,7 @@ You shoud install before `pip install pyYaml`
 import yaml
 
 noalias = yaml.dumper.SafeDumper
-noalias .ignore_aliases = lambda self, data: True
+noalias.ignore_aliases = lambda self, data: True
 
 with open('output.yaml', 'w') as outfile:
     yaml.dump(JejunuMeals().menus(), outfile, default_flow_style=False, allow_unicode=True, Dumper=noalias)
