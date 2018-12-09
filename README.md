@@ -82,9 +82,7 @@ Fetch meal data of specific weekday.
 }}
 ```
 
-#### Parameter
-
-##### weekday (optional)
+#### Parameter (optional)
 
 The weekday on which you want to fetch meal data.
 
