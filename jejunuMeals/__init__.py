@@ -17,6 +17,7 @@ WEEKDAYS = {0: 0, 1: 0, 2: 0, 3: 0,
 
 FLAGS = dict.fromkeys([0, 4, 8, 12, 16], 2)
 
+
 class JejunuMeals:
 
     def __init__(self, url=URL, yaml=YAML, weekdays=WEEKDAYS, flags=FLAGS):
@@ -31,19 +32,20 @@ class JejunuMeals:
     def _table_tds(self):
         soup = self._soup(self.url)
         return [[cell.text for cell in
-                      row.select('td.border_right.txt_center')]
-                      for row in soup.select('table > tr')][1:21]
+                 row.select('td.border_right.txt_center')]
+                for row in soup.select('table > tr')][1:21]
 
     def menus(self, _weekday=None):
         items, yaml = self._table_tds(), self.yaml
         for index, item in enumerate(items):
             weekday, flag = self.weekdays[index], self.flags.get(index, 1)
-            yaml[weekday]['점심'][item[flag - 1]] = item[flag]
-            yaml[weekday]['저녁'][item[flag - 1]] = item[flag + 1]
+            yaml[weekday]['점심'][item[flag - 1]] = item[flag][1:-1]
+            yaml[weekday]['저녁'][item[flag - 1]] = item[flag + 1][1:-1]
         return yaml.get(_weekday, yaml)
-    
+
     def daily(self):
         return self.menus(datetime.now().weekday())
+
 
 if __name__ == '__main__':
     from pprint import pprint
