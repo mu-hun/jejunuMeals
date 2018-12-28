@@ -117,4 +117,6 @@ with open('output.yaml', 'w') as outfile:
     yaml.dump(JejunuMeals().menus(), outfile, default_flow_style=False, allow_unicode=True, Dumper=noalias)
 ```
 
-_jejunuMeals_ is primarily distributed under the terms of the [GNU Affero General Public License v3.0](./LICENSE) or any later version. See [COPYRIGHT](./COPYRIGHT) for details.
+---
+
+_jejunuMeals_ is primarily distributed under the terms of the [MIT license]((./LICENSE)).

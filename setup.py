@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='jejunuMeals',
-    version='1.2',
+    version='1.2.2',
     url='https://github.com/BetaF1sh/jejunuMeals',
     license='GPL v3.0',
     author='BetaF1sh',
@@ -20,7 +20,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3 :: Only',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)'
+        'License :: OSI Approved :: MIT License'
     ],
     python_requires='>=3',
     install_requires=['bs4', 'requests'])
