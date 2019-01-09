@@ -5,9 +5,9 @@ with open('README.md') as f:
 
 setup(
     name='jejunuMeals',
-    version='1.2.2',
+    version='1.3',
     url='https://github.com/BetaF1sh/jejunuMeals',
-    license='GPL v3.0',
+    license='MIT',
     author='BetaF1sh',
     author_email='iam@muhun.kim',
     description='Jeju National University meal data crawler',
