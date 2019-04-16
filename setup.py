@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='jejunuMeals',
-    version='1.3',
+    version='1.4',
     url='https://github.com/BetaF1sh/jejunuMeals',
     license='MIT',
     author='BetaF1sh',

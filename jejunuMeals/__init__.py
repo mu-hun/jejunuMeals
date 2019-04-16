@@ -39,8 +39,8 @@ class JejunuMeals:
         yaml = self.yaml
         for index, item in enumerate(self._table_tds()):
             weekday, flag = self.weekdays[index], self.flags.get(index, 1)
-            yaml[weekday]['점심'][item[flag - 1]] = item[flag][1:-1]
-            yaml[weekday]['저녁'][item[flag - 1]] = item[flag + 1][1:-1]
+            yaml[weekday]['점심'][item[flag - 1]] = item[flag][1:-1].split("\n")
+            yaml[weekday]['저녁'][item[flag - 1]] = item[flag + 1][1:-1].split("\n")
         return yaml.get(_weekday, yaml)
 
     def daily(self):
